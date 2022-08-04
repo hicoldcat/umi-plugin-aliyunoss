@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: 安装依赖
+        run: npm install
+
       - name: 打包编译
         run: npm run build
 
