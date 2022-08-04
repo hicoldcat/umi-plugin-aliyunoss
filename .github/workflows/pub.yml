@@ -38,7 +38,6 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}
-          tag: ${{steps.version.outputs.value}}
         env:
           NPM_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
