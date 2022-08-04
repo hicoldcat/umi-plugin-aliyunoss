@@ -1,15 +1,13 @@
-# action名称
 name: Push Release
 
-# 当代码合并到master分支的时候，执行下列脚本
 on:
   push:
     branches: [ master ]
 
-# 任务
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    
     strategy:
       matrix:
         node-version: [ 12.x ]
