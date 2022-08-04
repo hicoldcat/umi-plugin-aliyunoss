@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "author": "李超 <hicoldcat@foxmail.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "umi": "^4.0.9",
+    "ali-oss": "^6.17.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/ali-oss": "^6.16.4",
+    "typescript": "^4.1.2"
+  }
+}

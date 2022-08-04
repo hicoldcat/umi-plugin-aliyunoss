@@ -1,0 +1,45 @@
+{
+  "name": "umi-plugin-aliyunoss",
+  "version": "1.0.0",
+  "description": "Umi插件，支持打包文件上传到阿里云OSS，基于最新的Umi V4 开发。",
+  "main": "lib/index.js",
+  "browser": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "father build"
+  },
+  "files": [
+    "lib",
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hicoldcat/umi-plugin-aliyunoss.git"
+  },
+  "keywords": [
+    "umi",
+    "umijs",
+    "plugin",
+    "oss",
+    "aliyun",
+    "aliyunosss",
+    "cdn"
+  ],
+  "author": "hicoldcat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hicoldcat/umi-plugin-aliyunoss/issues"
+  },
+  "homepage": "https://github.com/hicoldcat/umi-plugin-aliyunoss#readme",
+  "peerDependencies": {
+    "umi": "^4.0.9"
+  },
+  "devDependencies": {
+    "@types/ali-oss": "^6.16.4",
+    "father": "^2.30.21"
+  },
+  "dependencies": {
+    "ali-oss": "^6.17.1"
+  }
+}
