@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-aliyunoss",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Umi插件，支持打包文件上传到阿里云OSS，基于最新的Umi V4 开发。",
   "main": "lib/index.js",
   "browser": "dist/index.js",
