@@ -35,7 +35,10 @@ jobs:
           property: version
 
       - name: 发布NPM包
-        run: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN npm publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_ACCESS_TOKEN }}
+          tag: ${{steps.version.outputs.value}}
         env:
           NPM_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
