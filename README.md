@@ -1,10 +1,8 @@
 # umi-plugin-aliyunoss
 
-[![NPM version](https://img.shields.io/npm/v/umi-plugin-aliyunoss.svg?style=flat)](https://npmjs.org/package/umi-plugin-aliyunoss)
-[![NPM downloads](http://img.shields.io/npm/dm/umi-plugin-aliyunoss.svg?style=flat)](https://npmjs.org/package/umi-plugin-aliyunoss)
-[![Build Status](https://img.shields.io/travis/imhele/umi-plugin-aliyunoss.svg?style=flat)](https://travis-ci.org/imhele/umi-plugin-aliyunoss)
-[![Coverage Status](https://coveralls.io/repos/github/imhele/umi-plugin-aliyunoss/badge.svg?branch=master)](https://coveralls.io/github/imhele/umi-plugin-aliyunoss?branch=master)
-[![License](https://img.shields.io/npm/l/umi-plugin-aliyunoss.svg)](https://npmjs.org/package/umi-plugin-aliyunoss)
+[![NPM version](https://img.shields.io/npm/v/umi-plugin-aliyunoss)](https://npmjs.org/package/umi-plugin-aliyunoss)
+[![NPM downloads](https://img.shields.io/npm/dm/umi-plugin-aliyunoss)](https://npmjs.org/package/umi-plugin-aliyunoss)
+[![License](https://img.shields.io/npm/l/umi-plugin-aliyunoss)](https://npmjs.org/package/umi-plugin-aliyunoss)
 
 
 >基于 Umi 4.0 开发
