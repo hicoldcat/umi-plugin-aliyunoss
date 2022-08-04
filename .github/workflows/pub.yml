@@ -2,22 +2,22 @@ name: Push Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [ 12.x ]
 
     steps:
-      - name: 检查master分支
-        uses: actions/checkout@master
+      - name: 检查main分支
+        uses: actions/checkout@main
 
       - name: 设置Node.js
-        uses: actions/setup-node@master
+        uses: actions/setup-node@main
         with:
           node-version: ${{ matrix.node-version }}
 
