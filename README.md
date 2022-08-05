@@ -130,6 +130,9 @@ interface UmiPluginOptions {
     exclude?: RegExp;
 }
 ```
+
+**注意：请配置[publicPath](https://umijs.org/docs/api/config#publicpath)，否则HTML文件中无法使用打包后的阿里云oss文件！！！**
+**publicPath配置应该是：https://{bucket}.{region}.aliyuncs.com/{projectPath}/。如：https://umi-test.oss-cn-hangzhou.aliyuncs.com/umi-test/。**
 ## 示例
 
 进入[examples](https://github.com/hicoldcat/umi-plugin-aliyunoss/tree/master/examples/)目录下，运行项目并通过`npm run build`测试。

@@ -1,7 +1,9 @@
 import OSSConfig from './oss.json';
 
+// TODO:publicPath
 export default {
   npmClient: 'yarn',
+  publicPath: 'https://umi-test.oss-cn-hangzhou.aliyuncs.com/umi-test/',
   aliyunoss: {
     oss: {
       accessKeyId: OSSConfig.accessKeyId,

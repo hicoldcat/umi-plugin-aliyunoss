@@ -73,11 +73,11 @@ const filterFile = (filePath: string, api: IApi): boolean => {
 const readBuildFilesSync = (path: string, api: IApi): string[] => {
     let uploadFiles: string[] = [];
     if (!path) {
-        api.logger.error(`[${PLUGIN_NAME}]: 😞 构建输出路径不能为空！`);
+        api.logger.error(`😞 构建输出路径不能为空！`);
         return [];
     }
     if (!fs.existsSync(path)) {
-        api.logger.error(`[${PLUGIN_NAME}]: 😞 没有找到构建输出地址，请检查构建文件输出地址是否正确: ${path} `);
+        api.logger.error(`😞 没有找到构建输出地址，请检查构建文件输出地址是否正确: ${path} `);
         return [];
     }
     fs.readdirSync(path).forEach((name: string) => {
@@ -109,7 +109,7 @@ const uploadFiles = (files: string[], oss: OSS.Options, options: UmiPluginOption
     return Promise.all(promises).then((results) => {
         if (Array.isArray(results)) {
             results.forEach(({ name, url }: PutObjectResult) => {
-                api.logger.info(`[${PLUGIN_NAME}]: 🍉 文件上传成功，文件名：${name} ，地址为: ${url}\n`);
+                api.logger.info(`🍉 文件上传成功，文件名：${name} ，地址为: ${url}`);
             });
         }
         return Date.now() - start;
@@ -131,29 +131,39 @@ export default (api: IApi) => {
             const options = PluginOptions(api);
             const oss = OSSOptions(api);
             if (options.projectPath && (!options.projectPath.startsWith('/') || options.projectPath.endsWith('/'))) {
-                api.logger.error(`[${PLUGIN_NAME}]: 😞 projectPath 必须以'/'开头，且不能以'/'结尾！\n`);
-                return process.exit(-1);
+                api.logger.error(`😞 projectPath 必须以'/'开头，且不能以'/'结尾！`);
+                process.exit(-1);
             }
 
-            api.logger.info(`[${PLUGIN_NAME}]: 🤗 构建完成，即将开始上传到阿里云OSS\n`);
+            api.logger.info(`🤗 构建完成，即将开始上传到阿里云OSS`);
 
             const files = readBuildFilesSync(api.paths.absOutputPath, api);
 
             if (files.length === 0) {
-                api.logger.warn(`[${PLUGIN_NAME}]: 😔 没有需要上传到阿里云OSS的文件\n`);
+                api.logger.warn(`😔 没有需要上传到阿里云OSS的文件`);
             } else {
-                api.logger.info(`[${PLUGIN_NAME}]: 😁 待上传阿里云OSS文件总数：${files.length}\n`);
+                api.logger.info(`😁 待上传阿里云OSS文件总数：${files.length}`);
             }
 
             try {
                 const res: number = await uploadFiles(files, oss, options, api);
-                api.logger.info(`[${PLUGIN_NAME}]: 🎉  全部文件上传成功，共耗时：${(res / 1000).toFixed(2)}s \n`);
+                api.logger.info(`🎉  全部文件上传成功，共耗时：${(res / 1000).toFixed(2)}s`);
             } catch (error) {
-                api.logger.error(`[${PLUGIN_NAME}]: 😞 上传阿里云OSS失败，请检查错误信息！\n`);
+                api.logger.error(`😞 上传阿里云OSS失败，请检查错误信息！`);
                 api.logger.error(error);
             }
         } else {
-            api.logger.error(`[${PLUGIN_NAME}]: 😞 构建失败！\n`);
+            api.logger.error(`😞 构建失败！`);
         }
+    });
+    api.modifyConfig((initValue) => {
+        const { publicPath } = initValue || {};
+        console.log(publicPath, 'publicPath');
+
+        if (api.userConfig[KEY].oss && (publicPath === '/' || publicPath === '')) {
+            api.logger.warn(`❗️  请检查是否正确配置publicPath,未正确配置将导致HTML文件无法使用阿里云OSS文件`);
+            api.logger.warn(`❗️  配置示例：https://umi-test.oss-cn-hangzhou.aliyuncs.com/umi-test/`);
+        }
+        return initValue;
     });
 };
