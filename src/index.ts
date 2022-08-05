@@ -158,8 +158,6 @@ export default (api: IApi) => {
     });
     api.modifyConfig((initValue) => {
         const { publicPath } = initValue || {};
-        console.log(publicPath, 'publicPath');
-
         if (api.userConfig[KEY].oss && (publicPath === '/' || publicPath === '')) {
             api.logger.warn(`❗️  请检查是否正确配置publicPath,未正确配置将导致HTML文件无法使用阿里云OSS文件`);
             api.logger.warn(`❗️  配置示例：https://umi-test.oss-cn-hangzhou.aliyuncs.com/umi-test/`);
